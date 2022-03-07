@@ -26,7 +26,7 @@ Demo can be found [here](https://vincentjames501.github.io/angular-cron-gen/).
 ### Via npm
 
 ```
-$ npm install @mrbatista/angular-cron-gen
+$ npm install @cosminm/angular-cron-gen
 ```
 
 ## Options
