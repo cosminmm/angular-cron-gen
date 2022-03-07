@@ -1,6 +1,6 @@
 {
   "name": "@cosminm/angular-cron-gen",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A cron expression generator for AngularJS.",
   "main": "dist/cron-gen.min.js",
   "style": "dist/cron-gen.min.css",
@@ -15,18 +15,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cosminm/angular-cron-gen.git"
+    "url": "https://github.com/cosminmm/angular-cron-gen.git"
   },
   "keywords": [
     "angular",
     "angularjs",
     "cron",
-    "quartz"
+    "quartz",
+    "translate"
   ],
   "author": "Cosmin Moldoveanu",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cosminm/angular-cron-gen/issues"
+    "url": "https://github.com/cosminmm/angular-cron-gen/issues"
   },
   "devDependencies": {
     "@semantic-release/git": "^10.0.1",
