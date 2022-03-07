@@ -11,6 +11,7 @@ const rollup = require('gulp-rollup');
 const rollupBabel = require("rollup-plugin-babel");
 const ngAnnotate = require('gulp-ng-annotate');
 const livereload = require('gulp-livereload');
+const { series } = require('gulp');
 
 gulp.task('clean', () => {
     return gulp.src('dist/*', {read: false})
@@ -57,4 +58,4 @@ gulp.task('watch', () => {
     gulp.watch('src/cron-gen.less', ['less']);
 });
 
-gulp.task('default', ['clean', 'src', 'less']);
+gulp.task('default', series(['clean', 'src', 'less']));

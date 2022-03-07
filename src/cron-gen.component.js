@@ -1,35 +1,4 @@
 const ACCEPTABLE_CRON_FORMATS = ['quartz'];
-const DAY_LOOKUPS = {
-    'SUN': 'Sunday',
-    'MON': 'Monday',
-    'TUE': 'Tuesday',
-    'WED': 'Wednesday',
-    'THU': 'Thursday',
-    'FRI': 'Friday',
-    'SAT': 'Saturday'
-};
-const MONTH_WEEK_LOOKUPS = {
-    '#1': 'First',
-    '#2': 'Second',
-    '#3': 'Third',
-    '#4': 'Fourth',
-    '#5': 'Fifth',
-    'L': 'Last'
-};
-const MONTH_LOOKUPS = {
-    '1': 'January',
-    '2': 'February',
-    '3': 'March',
-    '4': 'April',
-    '5': 'May',
-    '6': 'June',
-    '7': 'July',
-    '8': 'August',
-    '9': 'September',
-    '10': 'October',
-    '11': 'November',
-    '12': 'December'
-};
 
 const States = {
     INIT: 1,
@@ -37,11 +6,16 @@ const States = {
     CLEAN: 3,
 };
 
+// CronGenComponent.$inject = ['$scope', 'cronGenService', '$translate']
 export class CronGenComponent {
-    constructor($scope, cronGenService) {
+    constructor($scope, cronGenService, $translate) {
         'ngInject';
 
         this.parsedOptions = this.mergeDefaultOptions(this.options);
+        this.$translate = $translate;
+
+        // $translate.use('en');
+        // console.log('$translate', $translate.use())
 
         angular.extend(this, {
             cronGenService,
@@ -164,30 +138,6 @@ export class CronGenComponent {
     unSetActiveScheduler($event) {
         $event.preventDefault();
         this.activeScheduler = undefined
-    }
-
-    dayDisplay(day) {
-        return DAY_LOOKUPS[day];
-    }
-
-    monthWeekDisplay(monthWeekNumber) {
-        return MONTH_WEEK_LOOKUPS[monthWeekNumber];
-    }
-
-    monthDisplay(monthNumber) {
-        return MONTH_LOOKUPS[monthNumber];
-    }
-
-    monthDayDisplay(monthDay) {
-        if (monthDay === 'L') {
-            return 'Last Day';
-        } else if (monthDay === 'LW') {
-            return 'Last Weekday';
-        } else if (monthDay === '1W') {
-            return 'First Weekday';
-        } else {
-            return `${monthDay}${this.cronGenService.appendInt(monthDay)} Day`;
-        }
     }
 
     processHour(hours) {

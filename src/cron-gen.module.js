@@ -2,7 +2,10 @@ import {CronGenComponent} from './cron-gen.component';
 import {CronGenService} from './cron-gen.service';
 import {CronGenTimeSelect} from './cron-gen-time-select.component';
 
-angular.module('angular-cron-gen', [])
+angular.module('angular-cron-gen', ['pascalprecht.translate'])
+    .config(['$translateProvider', ($translateProvider) => {
+        $translateProvider.useSanitizeValueStrategy('sceParameters');
+    }])
     .service('cronGenService', CronGenService)
     .component('cronGenTimeSelect', {
         bindings: {
