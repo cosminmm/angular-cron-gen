@@ -190,10 +190,11 @@ angular.module('ExampleApp', ['angular-cron-gen', 'pascalprecht.translate'])
         $translateProvider.preferredLanguage('en');
     }])
     .controller('ExampleCtrl', ['$scope', '$translate', function ($scope, $translate) {
-        $scope.cronExpression = '0 8 9 9 1/8 ? *';
+        $scope.cronExpression = '0 15 9 9 1/8 ? *';
         $scope.currentLanguage = 'en';
         $scope.cronOptions = {
-            hideAdvancedTab: false
+            hideAdvancedTab: false,
+            stepMinutes: 5
         };
         $scope.isCronDisabled = false;
 

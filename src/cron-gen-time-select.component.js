@@ -4,8 +4,13 @@ export class CronGenTimeSelect {
 
         this.cronGenService = cronGenService;
 
+        const stepMinutes = $scope.$ctrl.options.stepMinutes;
+        let minutes = [];
+        if (stepMinutes) minutes = cronGenService.range(60).filter((val, ix) => ix%stepMinutes===0);
+        else minutes = cronGenService.range(60);
+
         this.selectOptions = {
-            minutes: cronGenService.range(60),
+            minutes: minutes,
             seconds: cronGenService.range(60),
             hourTypes: ['AM', 'PM']
         };

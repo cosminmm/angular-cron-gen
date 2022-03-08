@@ -6,7 +6,6 @@ const States = {
     CLEAN: 3,
 };
 
-// CronGenComponent.$inject = ['$scope', 'cronGenService', '$translate']
 export class CronGenComponent {
     constructor($scope, cronGenService, $translate) {
         'ngInject';
@@ -22,10 +21,10 @@ export class CronGenComponent {
             cronFormat: 'quartz',
             currentState: States.INIT,
             activeScheduler: (() => this.parsedOptions.activeScheduler)(),
-            selectOptions: cronGenService.selectOptions(),
+            selectOptions: cronGenService.selectOptions(this.parsedOptions),
             state: {
                 minutes: {
-                    minutes: 1,
+                    minutes: this.parsedOptions.stepMinutes ? 5 : 1,
                     seconds: 0
                 },
                 hourly: {

@@ -12,6 +12,7 @@ angular.module('angular-cron-gen', ['pascalprecht.translate'])
             isDisabled: '<',
             onChange: '&',
             isRequired: '<',
+            options: '=',
             model: '=',
             selectClass: '<',
             use24HourTime: '<',

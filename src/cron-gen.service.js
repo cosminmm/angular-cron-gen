@@ -59,18 +59,26 @@ export class CronGenService {
             return new Array();
     }
 
-    selectOptions(){
-        return {
+    selectOptions({stepMinutes}){
+        let minutes = [], fullMinutes = [];;
+        if (stepMinutes) minutes = this.range(5, 60).filter((val, ix) => ix%stepMinutes===0);
+        else minutes = this.range(1, 60);
+
+        if (stepMinutes) fullMinutes = this.range(60).filter((val, ix) => ix%stepMinutes===0);
+        else fullMinutes = this.range(60);
+        
+        const result = {
             months: this.range(1, 13),
             monthWeeks: ['#1', '#2', '#3', '#4', '#5', 'L'],
             days: ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'],
-            minutes: this.range(1, 60),
-            fullMinutes: this.range(60),
+            minutes,
+            fullMinutes,
             seconds: this.range(60),
             hours: this.range(0, 24),
             monthDays: this.range(1, 32),
             monthDaysWithLasts: ['1W', ...[...new Array(31)].map((val, idx) => `${idx + 1}`), 'LW', 'L']
         };
+        return result;
     }
 
 

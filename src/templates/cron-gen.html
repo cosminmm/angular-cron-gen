@@ -169,6 +169,7 @@
                                     name-prefix="dailyEveryDays"
                                     is-required="$ctrl.activeScheduler === 'daily' && $ctrl.state.daily.subTab === 'everyDays'"
                                     model="$ctrl.state.daily.everyDays"
+                                    options="$ctrl.parsedOptions"
                                     select-class="$ctrl.parsedOptions.formSelectClass"
                                     use-24-hour-time="$ctrl.parsedOptions.use24HourTime"
                                     hide-seconds="$ctrl.parsedOptions.hideSeconds">
@@ -189,6 +190,7 @@
                                     name-prefix="dailyEveryWeekDay"
                                     is-required="$ctrl.activeScheduler === 'daily' && $ctrl.state.daily.subTab === 'everyWeekDay'"
                                     model="$ctrl.state.daily.everyWeekDay"
+                                    options="$ctrl.parsedOptions"
                                     select-class="$ctrl.parsedOptions.formSelectClass"
                                     use-24-hour-time="$ctrl.parsedOptions.use24HourTime"
                                     hide-seconds="$ctrl.parsedOptions.hideSeconds">
@@ -270,6 +272,7 @@
                                 name-prefix="weekly"
                                 is-required="$ctrl.activeScheduler === 'weekly'"
                                 model="$ctrl.state.weekly"
+                                options="$ctrl.parsedOptions"
                                 select-class="$ctrl.parsedOptions.formSelectClass"
                                 use-24-hour-time="$ctrl.parsedOptions.use24HourTime"
                                 hide-seconds="$ctrl.parsedOptions.hideSeconds">
@@ -314,6 +317,7 @@
                                     name-prefix="monthlySpecificDay"
                                     is-required="$ctrl.activeScheduler === 'monthly' && $ctrl.state.monthly.subTab === 'specificDay'"
                                     model="$ctrl.state.monthly.specificDay"
+                                    options="$ctrl.parsedOptions"
                                     select-class="$ctrl.parsedOptions.formSelectClass"
                                     use-24-hour-time="$ctrl.parsedOptions.use24HourTime"
                                     hide-seconds="$ctrl.parsedOptions.hideSeconds">
@@ -363,6 +367,7 @@
                                     name-prefix="monthlySpecificWeekDay"
                                     is-required="$ctrl.activeScheduler === 'monthly' && $ctrl.state.monthly.subTab === 'specificWeekDay'"
                                     model="$ctrl.state.monthly.specificWeekDay"
+                                    options="$ctrl.parsedOptions"
                                     select-class="$ctrl.parsedOptions.formSelectClass"
                                     use-24-hour-time="$ctrl.parsedOptions.use24HourTime"
                                     hide-seconds="$ctrl.parsedOptions.hideSeconds">
@@ -408,6 +413,7 @@
                                     is-required="$ctrl.activeScheduler === 'yearly' && $ctrl.state.yearly.subTab === 'specificMonthDay'"
                                     name-prefix="yearlySpecificMonthDay"
                                     model="$ctrl.state.yearly.specificMonthDay"
+                                    options="$ctrl.parsedOptions"
                                     select-class="$ctrl.parsedOptions.formSelectClass"
                                     use-24-hour-time="$ctrl.parsedOptions.use24HourTime"
                                     hide-seconds="$ctrl.parsedOptions.hideSeconds">
@@ -457,6 +463,7 @@
                                     name-prefix="yearlySpecificMonthWeek"
                                     is-required="$ctrl.activeScheduler === 'yearly' && $ctrl.state.yearly.subTab === 'specificMonthWeek'"
                                     model="$ctrl.state.yearly.specificMonthWeek"
+                                    options="$ctrl.parsedOptions"
                                     select-class="$ctrl.parsedOptions.formSelectClass"
                                     use-24-hour-time="$ctrl.parsedOptions.use24HourTime"
                                     hide-seconds="$ctrl.parsedOptions.hideSeconds">
