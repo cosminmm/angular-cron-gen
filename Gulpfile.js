@@ -30,14 +30,16 @@ gulp.task('src', () => {
     return gulp.src('src/**/*.js')
         .pipe(sourcemaps.init())
         .pipe(rollup({
-            format: 'iife',
+            output: {
+                format: 'iife',
+            },
             plugins: [
                 rollupBabel({
                     presets: [['es2015', {modules: false}]],
                     plugins: ['external-helpers']
                 })
             ],
-            entry: 'src/cron-gen.module.js'
+            input: 'src/cron-gen.module.js'
         }))
         .pipe(ngAnnotate())
         .pipe(addStream.obj(() => gulp.src('src/templates/*.html')
