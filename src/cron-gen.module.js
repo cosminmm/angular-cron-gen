@@ -26,7 +26,7 @@ angular.module('angular-cron-gen', ['pascalprecht.translate'])
         bindings: {
             ngModel: '=',
             ngDisabled: '<',
-            options: '<',
+            options: '=',
             cronFormat: '@',
             templateUrl: '@',
             name: '@'

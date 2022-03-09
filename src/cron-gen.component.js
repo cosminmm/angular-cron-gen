@@ -7,14 +7,12 @@ const States = {
 };
 
 export class CronGenComponent {
-    constructor($scope, cronGenService, $translate) {
+    constructor($scope, cronGenService, $translate, $timeout) {
         'ngInject';
-
+            
+        this.cronGenService = cronGenService;
         this.parsedOptions = this.mergeDefaultOptions(this.options);
         this.$translate = $translate;
-
-        // $translate.use('en');
-        // console.log('$translate', $translate.use())
 
         angular.extend(this, {
             cronGenService,
@@ -123,6 +121,12 @@ export class CronGenComponent {
         //If possible, add our cron expression validator to our form
         if (this.formCtrl && this.name) {
             this.ngModelCtrl.$validators.testCronExpr = expression => this.cronGenService.isValid(this.cronFormat, expression);
+        }
+
+        // It seems there are situations where we need to force update selectOptions
+        if (this.options.stepMinutes) {
+            this.parsedOptions = this.mergeDefaultOptions(this.options);
+            this.selectOptions = this.cronGenService.selectOptions(this.parsedOptions);
         }
     }
 
